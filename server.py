@@ -1,10 +1,13 @@
-from flask import Flask
+# import render_template to use html templates
+from flask import Flask, render_template
 import requests
 
 app = Flask(__name__)
 
 # Template string
-API_URL = 'https://financialmodelingprep.com/api/v3/stock/real-time-price/{ticker}'
+# /api/v3/profile offers more useful info than /api/v3/stock/real-time-price
+# TODO: Use more info than just price i.e. companyName, address, description, etc
+API_URL = 'https://financialmodelingprep.com/api/v3/profile/{ticker}'
 
 # fetch stock data using requests
 def fetch_price(ticker):
@@ -20,7 +23,7 @@ def fetch_price(ticker):
 @app.route('/stock/<ticker>')
 def stock(ticker):
     price = fetch_price(ticker)
-    return "The price of {ticker} is {price}".format(ticker=ticker, price=price)
+    return render_template('stock.html', ticker=ticker, price=price)
 
 @app.route('/')
 def home_page():
