@@ -13,6 +13,13 @@
     <nav class="navbar navbar-light bg-light justify-content-between">
         <!-- url_for generates proper path for supplied route -->
         <a href="{{ url_for('home_page') }}" class="navbar-brand">Stock App</a>
+        <ul class="navbar-nav mr-auto">
+            <!-- Add active class if on the homepage -->
+            <!-- 'request.url_rule.endpoint' grabs the url for the current page -->
+            <li class="nav-item {% if request.url_rule.endpoint == 'home_page' %} active {% endif %}">
+                <a href="{{ url_for('home_page') }}" class="nav-link">HOME</a>
+            </li>
+        </ul>
     </nav>
 
     <div class="container mt-3">
