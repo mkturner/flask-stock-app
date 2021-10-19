@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <!-- Pass ticker symbol to Jinja template -->
-    <title>Stock App</title>
-</head>
-<body>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a href="" class="navbar-brand">Stock App</a>
-    </nav>
+<!-- Tell Jinja you're using a template -->
+{% extends 'base_layout.html' %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <h1>Welcome to StockApp</h1>
-                <h2>This is an easy way to quickly view the price of stocks.</h2>
-            </div>
-        </div>
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+        <h1>Welcome to StockApp</h1>
+        <h2>An easy way to quickly view the price of stocks.</h2>
     </div>
-
-</body>
-</html>
+</div>
+{% endblock content %}
