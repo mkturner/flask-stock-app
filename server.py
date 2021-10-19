@@ -11,7 +11,7 @@ API_URL = 'https://financialmodelingprep.com/api/v3/profile/{ticker}'
 
 # fetch stock data using requests
 def fetch_price(ticker):
-    data = requests.get(API_URL.format(ticker=ticker.upper()), 
+    data = requests.get(API_URL.format(ticker=ticker), 
                         params={'apikey': '5ad5285c31ccdb3fc54dc1c1aea1907b'}).json()
     print(data)
     # data should be a dictionary with 2 keys "symbol" and "price"
@@ -22,9 +22,10 @@ def fetch_price(ticker):
 # capture symbol in URL as parameter
 @app.route('/stock/<ticker>')
 def stock(ticker):
+    ticker = ticker.upper()
     price = fetch_price(ticker)
     return render_template('stock.html', ticker=ticker, price=price)
 
 @app.route('/')
 def home_page():
-    return 'Try /stock/AAPL'
+    return render_template('index.html')
