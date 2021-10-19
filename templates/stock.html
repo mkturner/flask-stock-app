@@ -6,9 +6,13 @@
 {% block content %}
     <div class="row">
         <div class="col-sm">
-            <h1 class="mb-3">{{ticker}}</h1>
+            <!-- 'upper filter will trasnform text to upper case' -->
+            <h1 class="mb-3">{{ticker | upper}}</h1>
             <hr />
-            <h2>Price: ${{price}}</h2>
+            <!-- 'round' filter allows you to transform numeric data -->
+            <!-- arguments are the desired precision, and method to use -->
+            <!-- method must be a string -->
+            <h2>Price: ${{price | round(2, 'floor')}}</h2>
         </div>
         <div class="col">
             <!-- call the 'popular_stocks' partial -->
