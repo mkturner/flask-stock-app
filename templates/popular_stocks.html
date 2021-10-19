@@ -1,0 +1,11 @@
+<!-- Defines a partial that will be used for quick links to popular stocks -->
+{% block popular %}
+    <h2>Popular stocks:</h2>
+    <ul>
+        <!-- Create links to some popular stocks, pass ticker as parameter -->
+        <li><a href="{{ url_for('stock', ticker='AAPL') }}">$AAPL</a></li>
+        <li><a href="{{ url_for('stock', ticker='GOOG') }}">$GOOG</a></li>
+        <li><a href="{{ url_for('stock', ticker='FB') }}">$FB</a></li>
+    </ul>
+    
+{% endblock popular %}
